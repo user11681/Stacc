@@ -24,10 +24,6 @@ public abstract class AnvilDesktopHandSplayedFixin extends ForgingScreenHandler 
 		super(type, syncId, playerInventory, context);
 	}
 
-	@Override
-	@Shadow
-	public abstract void updateResult();
-
 	@Inject (method = "updateResult", at = @At (value = "INVOKE", target = "Lnet/minecraft/screen/AnvilScreenHandler;sendContentUpdates()V"))
 	private void uncrob(CallbackInfo ci) {
 		ItemStack input = this.input.getStack(0);
